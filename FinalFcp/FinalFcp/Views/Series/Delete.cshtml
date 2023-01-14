@@ -1,0 +1,52 @@
+﻿@model FinalFcp.Models.Serie
+
+@{
+    ViewData["Title"] = "Eliminar Serie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl py-5">
+    <div class="container">
+
+        <h1>Eliminar Serie</h1>
+
+        <h3>¿Está Seguro que quiere eliminar esta serie?</h3>
+        <div>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">Título</dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Titulo)
+                </dd>
+                <dt class="col-sm-2">Sinopsis</dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Sinopsis)
+                </dd>
+                <dt class="col-sm-2">Director</dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Director)
+                </dd>
+                <dt class="col-sm-2">Duración</dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Duracion)
+                </dd>
+                <dt class="col-sm-2">Fecha de estreno</dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FechaEstreno)
+                </dd>
+                <dt class="col-sm-2">Usuario Registro</dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.UsuarioRegistro)
+                </dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger">
+                    <i class="fa-solid fa-trash-can"></i> Eliminar
+                </button> |
+                <a asp-action="Index"><i class="fa-solid fa-backward"></i> Volver a la lista</a>
+            </form>
+        </div>
+    </div>
+</div>

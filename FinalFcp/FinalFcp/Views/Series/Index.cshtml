@@ -1,0 +1,53 @@
+﻿@model IEnumerable<FinalFcp.Models.Serie>
+
+@{
+    ViewData["Title"] = "Series";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-xxl py-5">
+    <div class="container">
+        <h1>Series</h1>
+
+        <p>
+            <a asp-action="Create"><i class="fa-solid fa-plus"></i>Crear Nuevo</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Sinopsis</th>
+                    <th>Director</th>
+                    <th>Duración</th>
+                    <th>Fecha de Estreno</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sinopsis)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Director)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Duracion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FechaEstreno)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"><i class="fa-solid fa-file-pen"></i></a> |
+                            <a asp-action="Details" asp-route-id="@item.Id" title="Detalle"><i class="fa-solid fa-circle-info"></i></a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id" title="Eliminar"><i class="fa-solid fa-trash"></i></a>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
